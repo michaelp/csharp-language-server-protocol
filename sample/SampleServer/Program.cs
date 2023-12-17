@@ -53,6 +53,7 @@ namespace SampleServer
                        .WithHandler<FoldingRangeHandler>()
                        .WithHandler<MyWorkspaceSymbolsHandler>()
                        .WithHandler<MyDocumentSymbolHandler>()
+                       .WithHandler<MyDocHooverHandler>()
                        .WithHandler<SemanticTokensHandler>()
                        .WithServices(x => x.AddLogging(b => b.SetMinimumLevel(LogLevel.Trace)))
                        .WithServices(
