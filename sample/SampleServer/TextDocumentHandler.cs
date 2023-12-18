@@ -24,17 +24,18 @@ namespace SampleServer
     {
         private readonly ILogger<TextDocumentHandler> _logger;
         private readonly ILanguageServerConfiguration _configuration;
-
+        private readonly ILanguageServerFacade _facade;
         private readonly TextDocumentSelector _textDocumentSelector = new TextDocumentSelector(
             new TextDocumentFilter {
                 Pattern = "**/*.cs"
             }
         );
 
-        public TextDocumentHandler(ILogger<TextDocumentHandler> logger, Foo foo, ILanguageServerConfiguration configuration)
+        public TextDocumentHandler(ILogger<TextDocumentHandler> logger, Foo foo, ILanguageServerConfiguration configuration, ILanguageServerFacade facade)
         {
             _logger = logger;
             _configuration = configuration;
+            _facade = facade;
             foo.SayFoo();
         }
 
@@ -46,6 +47,30 @@ namespace SampleServer
             _logger.LogDebug("Debug");
             _logger.LogTrace("Trace");
             _logger.LogInformation("Hello world!");
+            var r = new PublishDiagnosticsParams
+            {
+                Uri = notification.TextDocument.Uri, 
+                Version = notification.TextDocument.Version,
+                Diagnostics = new Container<Diagnostic>(
+                new Diagnostic()
+        {
+                    Severity = DiagnosticSeverity.Error,
+                    Code = 0,
+                    Message = "This is an error message",
+                    Source = "dsl compiler", Range = new Range(0,0,0,0)
+                },
+                new Diagnostic()
+                {
+                    Severity = DiagnosticSeverity.Warning,
+                    Code = 122,
+                    Message = "This is a message",
+                    Source = "dsl compiler", Range = new Range(3, 3, 3, 10),
+                    
+                    CodeDescription = new CodeDescription() { Href = new Uri("https://www.google.com")  },
+                }
+                )
+            };
+            _facade.TextDocument.PublishDiagnostics(r);
             return Unit.Task;
         }
 
@@ -77,9 +102,12 @@ namespace SampleServer
 
         public override TextDocumentAttributes GetTextDocumentAttributes(DocumentUri uri) => new TextDocumentAttributes(uri, "csharp");
     }
-
     internal class MyDocumentSymbolHandler : IDocumentSymbolHandler
     {
+        private readonly IPublishDiagnosticsHandler _publishDiagnosticsHandler;
+        
+
+        
         public async Task<SymbolInformationOrDocumentSymbolContainer> Handle(
             DocumentSymbolParams request,
             CancellationToken cancellationToken
@@ -123,9 +151,10 @@ namespace SampleServer
                     currentCharacter += part.Length + 1;
                 }
             }
-
+            
             // await Task.Delay(2000, cancellationToken);
             return symbols;
+            
         }
 
         public DocumentSymbolRegistrationOptions GetRegistrationOptions(DocumentSymbolCapability capability, ClientCapabilities clientCapabilities) => new DocumentSymbolRegistrationOptions {

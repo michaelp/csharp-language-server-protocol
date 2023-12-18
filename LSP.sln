@@ -4,16 +4,16 @@ VisualStudioVersion = 16.0.29025.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D764E024-3D3F-4112-B932-2DB722A1BACC}"
 	ProjectSection(SolutionItems) = preProject
-		src\Directory.Build.props = src\Directory.Build.props
-		src\Directory.Build.targets = src\Directory.Build.targets
-		src\.editorconfig = src\.editorconfig
+		src/Directory.Build.props = src/Directory.Build.props
+		src/Directory.Build.targets = src/Directory.Build.targets
+		src/.editorconfig = src/.editorconfig
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{2F323ED5-EBF8-45E1-B9D3-C014561B3DDA}"
 	ProjectSection(SolutionItems) = preProject
-		test\Directory.Build.props = test\Directory.Build.props
-		test\Directory.Build.targets = test\Directory.Build.targets
-		test\.editorconfig = test\.editorconfig
+		test/Directory.Build.props = test/Directory.Build.props
+		test/Directory.Build.targets = test/Directory.Build.targets
+		test/.editorconfig = test/.editorconfig
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{AE4D7807-6F78-428C-A0D9-914BA583A104}"
@@ -84,7 +84,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lsp.Integration.Tests", "te
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{93A0F406-2CEB-491E-9F40-6DA1BA67DD7C}"
 	ProjectSection(SolutionItems) = preProject
-		.config\dotnet-tools.json = .config\dotnet-tools.json
+		.config/dotnet-tools.json = .config/dotnet-tools.json
 		Directory.Build.props = Directory.Build.props
 		Directory.Packages.props = Directory.Packages.props
 		Directory.Packages.supports.props = Directory.Packages.supports.props
@@ -113,34 +113,34 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{93A0F4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{19909559-F753-4337-952B-A8B5B5889959}"
 	ProjectSection(SolutionItems) = preProject
-		.github\labels.yml = .github\labels.yml
-		.github\renovate.json = .github\renovate.json
+		.github/labels.yml = .github/labels.yml
+		.github/renovate.json = .github/renovate.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{97924298-E17E-46E6-83CC-D9CD3B9F5E6F}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\ci-ignore.yml = .github\workflows\ci-ignore.yml
-		.github\workflows\draft-release.yml = .github\workflows\draft-release.yml
-		.github\workflows\publish-nuget.yml = .github\workflows\publish-nuget.yml
-		.github\workflows\dependabot-merge.yml = .github\workflows\dependabot-merge.yml
-		.github\workflows\sync-labels.yml = .github\workflows\sync-labels.yml
-		.github\workflows\close-milestone.yml = .github\workflows\close-milestone.yml
-		.github\workflows\update-milestone.yml = .github\workflows\update-milestone.yml
-		.github\workflows\ci.yml = .github\workflows\ci.yml
+		.github/workflows/ci-ignore.yml = .github/workflows/ci-ignore.yml
+		.github/workflows/draft-release.yml = .github/workflows/draft-release.yml
+		.github/workflows/publish-nuget.yml = .github/workflows/publish-nuget.yml
+		.github/workflows/dependabot-merge.yml = .github/workflows/dependabot-merge.yml
+		.github/workflows/sync-labels.yml = .github/workflows/sync-labels.yml
+		.github/workflows/close-milestone.yml = .github/workflows/close-milestone.yml
+		.github/workflows/update-milestone.yml = .github/workflows/update-milestone.yml
+		.github/workflows/ci.yml = .github/workflows/ci.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".husky", ".husky", "{BED6765C-97D8-406D-B782-3307132D16F0}"
 	ProjectSection(SolutionItems) = preProject
-		.husky\pre-commit = .husky\pre-commit
+		.husky/pre-commit = .husky/pre-commit
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".vscode", ".vscode", "{09BE8ED9-1986-40F3-A9A6-D826A7413581}"
 	ProjectSection(SolutionItems) = preProject
-		.vscode\settings.json = .vscode\settings.json
-		.vscode\csharp.code-snippets = .vscode\csharp.code-snippets
-		.vscode\launch.json = .vscode\launch.json
-		.vscode\tasks.json.old = .vscode\tasks.json.old
-		.vscode\tasks.json = .vscode\tasks.json
+		.vscode/settings.json = .vscode/settings.json
+		.vscode/csharp.code-snippets = .vscode/csharp.code-snippets
+		.vscode/launch.json = .vscode/launch.json
+		.vscode/tasks.json.old = .vscode/tasks.json.old
+		.vscode/tasks.json = .vscode/tasks.json
 	EndProjectSection
 EndProject
 Global
